@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'OpusRecorder_Example' do
+  pod 'OpusRecorder', :path => '../'
+
+  target 'OpusRecorder_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
