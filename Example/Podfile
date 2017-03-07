@@ -1,11 +1,25 @@
+platform :ios, '9.0'
+
 use_frameworks!
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/obaskanderi/OpusPodSpecs'
 
 target 'OpusRecorder_Example' do
   pod 'OpusRecorder', :path => '../'
+  pod 'OrigamiEngine/Opus', :git => 'https://github.com/obaskanderi/OrigamiEngine', :submodules => true
+end
 
-  target 'OpusRecorder_Tests' do
-    inherit! :search_paths
+target 'OpusRecorder_Tests' do
+  inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
-  end
+  pod 'FBSnapshotTestCase'
+end
+
+post_install do | installer |
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+        end
+    end
 end

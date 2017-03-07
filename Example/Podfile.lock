@@ -1,0 +1,43 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - ogg-ios (1.3.2)
+  - opus-ios (1.1.3)
+  - OpusRecorder (0.1.0):
+    - ogg-ios (~> 1.3.2)
+    - opus-ios (~> 1.1.3)
+  - OrigamiEngine/Core (1.0.14)
+  - OrigamiEngine/Opus (1.0.14):
+    - OrigamiEngine/Core
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - OpusRecorder (from `../`)
+  - OrigamiEngine/Opus (from `https://github.com/obaskanderi/OrigamiEngine`)
+
+EXTERNAL SOURCES:
+  OpusRecorder:
+    :path: ../
+  OrigamiEngine:
+    :git: https://github.com/obaskanderi/OrigamiEngine
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  OrigamiEngine:
+    :commit: 22e73a7348e214e7599e35a80e07683115c1fb79
+    :git: https://github.com/obaskanderi/OrigamiEngine
+    :submodules: true
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  ogg-ios: c0526a29836c7956fd93a11c6abd794c7fb40ec7
+  opus-ios: 19844a35de2292d8556277f99204c721ad644352
+  OpusRecorder: 5d478b02217d95f9319380d84031e49008a71ea2
+  OrigamiEngine: 74b097326260597f1498790795cc2cdd604c199a
+
+PODFILE CHECKSUM: 7434d5cc19c4f72cab7a0d1c74bf4dd994c81800
+
+COCOAPODS: 1.2.0

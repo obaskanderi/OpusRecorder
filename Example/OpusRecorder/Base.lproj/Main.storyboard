@@ -1,25 +1,68 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="OpusRecorder_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6b-ev-Qgz">
+                                <rect key="frame" x="16" y="253" width="343" height="30"/>
+                                <state key="normal" title="Start Recording"/>
+                                <connections>
+                                    <action selector="startPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jhd-gA-jGZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-cD-1dV" userLabel="DurationLabel">
+                                <rect key="frame" x="165" y="323" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-nm-pzV">
+                                <rect key="frame" x="16" y="384" width="343" height="30"/>
+                                <state key="normal" title="Stop Recording"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6tP-6u-J89"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XhX-nm-pzV" firstAttribute="top" secondItem="T2i-cD-1dV" secondAttribute="bottom" constant="40" id="0z4-bO-Ep8"/>
+                            <constraint firstItem="T2i-cD-1dV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="OA8-oV-lNZ"/>
+                            <constraint firstItem="T2i-cD-1dV" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="QUz-ii-uek"/>
+                            <constraint firstItem="XhX-nm-pzV" firstAttribute="centerX" secondItem="T2i-cD-1dV" secondAttribute="centerX" id="YC7-gS-L4S"/>
+                            <constraint firstItem="XhX-nm-pzV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ZhQ-mi-kdA"/>
+                            <constraint firstItem="T2i-cD-1dV" firstAttribute="top" secondItem="Q6b-ev-Qgz" secondAttribute="bottom" constant="40" id="ep7-Gn-peC"/>
+                            <constraint firstItem="XhX-nm-pzV" firstAttribute="trailing" secondItem="Q6b-ev-Qgz" secondAttribute="trailing" id="mQm-9P-q0U"/>
+                            <constraint firstItem="XhX-nm-pzV" firstAttribute="leading" secondItem="Q6b-ev-Qgz" secondAttribute="leading" id="qH6-Qy-f0C"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="T2i-cD-1dV" id="rSM-Q2-fC7"/>
+                        <outlet property="startRecordingButton" destination="Q6b-ev-Qgz" id="9gO-U3-B3g"/>
+                        <outlet property="stopRecordingButton" destination="XhX-nm-pzV" id="mOJ-ef-uUC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
