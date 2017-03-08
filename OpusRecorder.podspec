@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OpusRecorder'
-  s.version          = '0.1.0'
+  s.version          = '1.0'
   s.summary          = 'A voice recorder that encodes audio using opus codec.'
   s.homepage         = 'https://github.com/obaskanderi/OpusRecorder'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
