@@ -1,15 +1,26 @@
 # OpusRecorder
 
-[![CI Status](http://img.shields.io/travis/obaskanderi/OpusRecorder.svg?style=flat)](https://travis-ci.org/obaskanderi/OpusRecorder)
-[![Version](https://img.shields.io/cocoapods/v/OpusRecorder.svg?style=flat)](http://cocoapods.org/pods/OpusRecorder)
-[![License](https://img.shields.io/cocoapods/l/OpusRecorder.svg?style=flat)](http://cocoapods.org/pods/OpusRecorder)
-[![Platform](https://img.shields.io/cocoapods/p/OpusRecorder.svg?style=flat)](http://cocoapods.org/pods/OpusRecorder)
+Record microphone input and encode data with opus codec.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+	// Create a file to store voice recording
+	let audioFilename = ProcessInfo.processInfo.globallyUniqueString + ".ogg"
+    let audioFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(audioFilename)
+   	let audioURL = URL(fileURLWithPath: audioFilePath, isDirectory: false)
 
-## Requirements
+	if !FileManager.default.fileExists(atPath: audioFile.path) {
+    	FileManager.default.createFile(atPath: audioFile.path, contents: nil, attributes: nil)
+    }
+
+	// Start recording
+	let recorder = OpusRecorder()
+	recorder.start(audioURL!) { (error: Error) in
+		print("Failed to start recording, error: \(error)")
+	}
+
+    // Stop recording
+    recorder.stop()
 
 ## Installation
 
@@ -26,4 +37,4 @@ obaskanderi, obaskanderi@topologyinc.com
 
 ## License
 
-OpusRecorder is available under the MIT license. See the LICENSE file for more info.
+OpusRecorder is available under the Apache 2.0 license. See the LICENSE file for more info.
